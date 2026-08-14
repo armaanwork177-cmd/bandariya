@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Happy Birthday Bandariya 🐒💛</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink: #FF6FA0;
+    --pink-deep: #E8447F;
+    --banana: #FFCB3D;
+    --night: #35244F;
+    --cream: #FFF7EA;
+    --leaf: #6FBF73;
+    --sky: #A78BFA;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html,body{
+    height:100%;
+    background: linear-gradient(180deg, var(--night) 0%, #4A3169 55%, #6B3F73 100%);
+    font-family: 'Poppins', sans-serif;
+    overflow-x:hidden;
+    color: var(--cream);
+  }
+
+  .stars{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+  }
+  .star{
+    position:absolute; width:3px; height:3px; background:#fff; border-radius:50%;
+    opacity:0.7; animation: twinkle 2.5s infinite ease-in-out;
+  }
+  @keyframes twinkle{
+    0%,100%{ opacity:0.2; transform:scale(1); }
+    50%{ opacity:1; transform:scale(1.6); }
+  }
+
+  .scene{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    padding: 40px 18px 80px;
+    z-index:2;
+  }
+
+  /* Banana moon */
+  .moon{
+    width:90px; height:90px;
+    position:absolute; top:30px; right:8%;
+    filter: drop-shadow(0 0 25px rgba(255,203,61,0.6));
+    animation: float-moon 6s ease-in-out infinite;
+  }
+  @keyframes float-moon{
+    0%,100%{ transform: translateY(0) rotate(-8deg); }
+    50%{ transform: translateY(-14px) rotate(-2deg); }
+  }
+
+  h1.title{
+    font-family:'Baloo 2', cursive;
+    font-weight:800;
+    font-size: clamp(2.4rem, 8vw, 4.6rem);
+    text-align:center;
+    color: var(--banana);
+    text-shadow: 3px 3px 0 var(--pink-deep), 0 0 40px rgba(255,203,61,0.35);
+    margin-top: 30px;
+    letter-spacing: 1px;
+    line-height:1.05;
+  }
+
+  .title .accent{
+    color: var(--pink);
+    text-shadow: 3px 3px 0 var(--night), 0 0 40px rgba(255,111,160,0.45);
+  }
+
+  .subtitle{
+    font-family:'Baloo 2', cursive;
+    font-weight:600;
+    font-size: clamp(1.1rem, 3.5vw, 1.6rem);
+    color: var(--cream);
+    margin-top: 10px;
+    text-align:center;
+    opacity:0.9;
+  }
+
+  .monkey-wrap{
+    margin: 26px auto 6px;
+    width: min(280px, 62vw);
+    animation: sway 3.6s ease-in-out infinite;
+    transform-origin: top center;
+    cursor:pointer;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.35));
+  }
+  @keyframes sway{
+    0%,100%{ transform: rotate(-4deg); }
+    50%{ transform: rotate(4deg); }
+  }
+  .monkey-wrap:active{ transform: scale(0.95) rotate(0deg); }
+
+  .hint{
+    font-size:0.85rem;
+    opacity:0.65;
+    margin-top:2px;
+    text-align:center;
+  }
+
+  .message-card{
+    margin-top: 34px;
+    max-width: 560px;
+    width:100%;
+    background: rgba(255,247,234,0.08);
+    border: 1.5px solid rgba(255,203,61,0.35);
+    backdrop-filter: blur(6px);
+    border-radius: 26px;
+    padding: 30px 26px;
+    text-align:center;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+  }
+
+  .message-card p{
+    font-size: clamp(1rem, 2.6vw, 1.15rem);
+    line-height:1.75;
+    color: var(--cream);
+    font-weight:300;
+  }
+
+  .message-card p + p{ margin-top:14px; }
+
+  .message-card .signoff{
+    font-family:'Baloo 2', cursive;
+    font-weight:700;
+    color: var(--banana);
+    margin-top:18px;
+    font-size:1.2rem;
+  }
+
+  /* Cake section */
+  .cake-section{
+    margin-top: 46px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .cake-caption{
+    font-family:'Baloo 2', cursive;
+    font-weight:600;
+    font-size: 1.05rem;
+    margin-bottom: 14px;
+    color: var(--pink);
+    text-align:center;
+  }
+
+  .cake{
+    width: min(230px, 55vw);
+    cursor:pointer;
+    user-select:none;
+  }
+
+  .flame{
+    transform-origin: center bottom;
+    animation: flicker 0.7s infinite alternate ease-in-out;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  @keyframes flicker{
+    0%{ transform: scale(1) rotate(-3deg); }
+    100%{ transform: scale(1.12) rotate(3deg); }
+  }
+  .flame.blown{
+    opacity:0;
+    transform: scale(0.2) translateY(10px);
+    animation:none;
+  }
+
+  .blow-hint{
+    margin-top: 14px;
+    font-size:0.85rem;
+    opacity:0.7;
+    text-align:center;
+  }
+
+  /* balloons */
+  .balloons{
+    position:fixed;
+    bottom:-140px;
+    left:0; right:0;
+    height:0;
+    pointer-events:none;
+    z-index:5;
+  }
+  .balloon{
+    position:absolute;
+    bottom:0;
+    width: 46px;
+    animation: rise linear forwards;
+    opacity:0.95;
+  }
+  @keyframes rise{
+    0%{ transform: translateY(0) translateX(0) rotate(-3deg); opacity:1; }
+    100%{ transform: translateY(-115vh) translateX(var(--drift, 30px)) rotate(6deg); opacity:0.9; }
+  }
+
+  /* confetti */
+  .confetti-piece{
+    position:fixed;
+    top:-20px;
+    width:9px; height:14px;
+    z-index:6;
+    pointer-events:none;
+    animation: fall linear forwards;
+  }
+  @keyframes fall{
+    to{ transform: translateY(105vh) rotate(600deg); opacity:0.9; }
+  }
+
+  footer{
+    margin-top: 50px;
+    font-size:0.8rem;
+    opacity:0.5;
+    text-align:center;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; }
+  }
+
+  @media (max-width: 480px){
+    .scene{ padding: 24px 14px 60px; }
+
+    .moon{
+      width: 54px; height:54px;
+      top: 16px; right: 6%;
+    }
+
+    h1.title{
+      margin-top: 56px;
+      font-size: clamp(1.9rem, 10vw, 2.6rem);
+    }
+
+    .subtitle{ font-size: 1rem; margin-top: 8px; }
+
+    .monkey-wrap{ width: min(200px, 58vw); margin: 20px auto 4px; }
+
+    .message-card{
+      margin-top: 24px;
+      padding: 22px 18px;
+      border-radius: 20px;
+    }
+
+    .message-card p{ font-size: 0.95rem; line-height:1.65; }
+
+    .cake-section{ margin-top: 34px; }
+
+    .cake{ width: min(190px, 62vw); }
+
+    .balloon{ width: 34px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+<div class="balloons" id="balloons"></div>
+
+<div class="scene">
+
+  <svg class="moon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <path d="M60 10 C35 10 15 30 15 55 C15 80 35 100 60 100 C40 92 28 75 28 55 C28 35 40 18 60 10 Z" fill="#FFCB3D"/>
+  </svg>
+
+  <h1 class="title">Happy Birthday<br><span class="accent">Bandariya</span> 🐒💛</h1>
+  <p class="subtitle">meri sabse pyaari bandariya ke liye ✨</p>
+
+  <div class="monkey-wrap" id="monkeyBtn" title="tap me!">
+    <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+      <!-- ears -->
+      <circle cx="40" cy="90" r="30" fill="#8B5A3C"/>
+      <circle cx="180" cy="90" r="30" fill="#8B5A3C"/>
+      <circle cx="40" cy="90" r="17" fill="#E8B792"/>
+      <circle cx="180" cy="90" r="17" fill="#E8B792"/>
+      <!-- head -->
+      <circle cx="110" cy="110" r="78" fill="#A9714A"/>
+      <!-- face patch -->
+      <ellipse cx="110" cy="128" rx="52" ry="46" fill="#F1D2B0"/>
+      <!-- party hat -->
+      <polygon points="110,10 80,70 140,70" fill="#FF6FA0" stroke="#E8447F" stroke-width="2"/>
+      <circle cx="110" cy="10" r="8" fill="#FFCB3D"/>
+      <rect x="82" y="55" width="56" height="8" fill="#FFCB3D"/>
+      <!-- eyes -->
+      <circle cx="88" cy="118" r="11" fill="#3A2417"/>
+      <circle cx="132" cy="118" r="11" fill="#3A2417"/>
+      <circle cx="91" cy="114" r="3" fill="#fff"/>
+      <circle cx="135" cy="114" r="3" fill="#fff"/>
+      <!-- smile -->
+      <path d="M85 148 Q110 172 135 148" stroke="#3A2417" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <!-- nostrils -->
+      <circle cx="102" cy="140" r="2.5" fill="#3A2417"/>
+      <circle cx="118" cy="140" r="2.5" fill="#3A2417"/>
+      <!-- cheeks -->
+      <circle cx="72" cy="140" r="9" fill="#FF9EBF" opacity="0.6"/>
+      <circle cx="148" cy="140" r="9" fill="#FF9EBF" opacity="0.6"/>
+    </svg>
+  </div>
+  <p class="hint">(tap the bandariya 🐒 for a surprise)</p>
+
+  <div class="message-card">
+    <p>Tumhari smile duniya ki sabse best cheez hai, aur aaj us smile ka special din hai! 🎉</p>
+    <p>Tum meri jitni pyaari, utni hi zyada paagal (thoda sa) bhi ho — aur main tumhe waise hi love karta hoon. 🐒💕</p>
+    <p>Is saal tumhe ढेर saari khushiyan, endless bananas 🍌, aur mera pyaar milta rahe, hamesha ki tarah.</p>
+    <p class="signoff">Happy Birthday, meri bandariya! 🎂</p>
+  </div>
+
+  <div class="cake-section">
+    <p class="cake-caption">candle bhujao 🕯️ (click on the flame)</p>
+    <svg class="cake" id="cake" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
+      <!-- plate -->
+      <ellipse cx="100" cy="165" rx="90" ry="10" fill="#3D2C5C"/>
+      <!-- bottom layer -->
+      <rect x="30" y="110" width="140" height="45" rx="8" fill="#FF6FA0"/>
+      <rect x="30" y="110" width="140" height="10" fill="#E8447F"/>
+      <!-- top layer -->
+      <rect x="55" y="75" width="90" height="40" rx="8" fill="#FFCB3D"/>
+      <rect x="55" y="75" width="90" height="9" fill="#E8A93D"/>
+      <!-- sprinkles -->
+      <circle cx="50" cy="130" r="3" fill="#A78BFA"/>
+      <circle cx="70" cy="140" r="3" fill="#6FBF73"/>
+      <circle cx="150" cy="130" r="3" fill="#A78BFA"/>
+      <circle cx="130" cy="140" r="3" fill="#fff"/>
+      <circle cx="90" cy="95" r="3" fill="#FF6FA0"/>
+      <circle cx="120" cy="95" r="3" fill="#fff"/>
+      <!-- candle -->
+      <rect x="95" y="45" width="10" height="30" fill="#A78BFA"/>
+      <g class="flame" id="flame">
+        <path d="M100 20 C92 32 96 42 100 45 C104 42 108 32 100 20 Z" fill="#FFCB3D"/>
+        <path d="M100 28 C96 34 98 40 100 42 C102 40 104 34 100 28 Z" fill="#FF6FA0"/>
+      </g>
+    </svg>
+    <p class="blow-hint" id="blowHint">wish maango pehle! ✨</p>
+  </div>
+
+  <footer>made with 🍌 and pyaar, for you</footer>
+</div>
+
+<script>
+  // stars
+  const starsC = document.getElementById('stars');
+  for(let i=0;i<70;i++){
+    const s = document.createElement('div');
+    s.className='star';
+    s.style.left = Math.random()*100+'%';
+    s.style.top = Math.random()*70+'%';
+    s.style.animationDelay = (Math.random()*3)+'s';
+    starsC.appendChild(s);
+  }
+
+  const colors = ['#FF6FA0','#FFCB3D','#A78BFA','#6FBF73','#FFF7EA'];
+
+  function confettiBurst(count=60){
+    const wrap = document.body;
+    for(let i=0;i<count;i++){
+      const p = document.createElement('div');
+      p.className='confetti-piece';
+      p.style.left = Math.random()*100+'vw';
+      p.style.background = colors[Math.floor(Math.random()*colors.length)];
+      p.style.animationDuration = (2.2+Math.random()*1.8)+'s';
+      p.style.borderRadius = Math.random()>0.5 ? '50%':'2px';
+      wrap.appendChild(p);
+      setTimeout(()=>p.remove(), 4200);
+    }
+  }
+
+  function launchBalloons(count=8){
+    const container = document.getElementById('balloons');
+    for(let i=0;i<count;i++){
+      const b = document.createElement('div');
+      b.className='balloon';
+      b.style.left = (Math.random()*90)+'vw';
+      b.style.setProperty('--drift',(Math.random()*80-40)+'px');
+      b.style.animationDuration = (5+Math.random()*3)+'s';
+      const color = colors[Math.floor(Math.random()*colors.length)];
+      b.innerHTML = `<svg viewBox="0 0 46 60" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="23" cy="24" rx="22" ry="24" fill="${color}"/>
+        <polygon points="18,46 28,46 23,54" fill="${color}"/>
+        <line x1="23" y1="54" x2="23" y2="60" stroke="#ccc" stroke-width="1"/>
+      </svg>`;
+      container.appendChild(b);
+      setTimeout(()=>b.remove(), 9000);
+    }
+  }
+
+  document.getElementById('monkeyBtn').addEventListener('click', ()=>{
+    confettiBurst(45);
+    launchBalloons(6);
+  });
+
+  const flame = document.getElementById('flame');
+  const blowHint = document.getElementById('blowHint');
+  let blown = false;
+  flame.style.cursor='pointer';
+  flame.addEventListener('click', ()=>{
+    if(blown){
+      flame.classList.remove('blown');
+      blowHint.textContent = 'wish maango pehle! ✨';
+      blown = false;
+      return;
+    }
+    flame.classList.add('blown');
+    blowHint.textContent = 'wish poori ho! 🎉 (click phir se relight)';
+    blown = true;
+    confettiBurst(80);
+    launchBalloons(10);
+  });
+
+  // gentle auto balloons on load
+  window.addEventListener('load', ()=>{
+    setTimeout(()=>launchBalloons(5), 900);
+  });
+</script>
+
+</body>
+</html>
